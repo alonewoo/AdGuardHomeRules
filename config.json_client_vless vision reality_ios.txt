@@ -29,10 +29,6 @@
 				"outbound": "any",
 				"server": "dns_resolver"
 			},
-				{
-				"rule_set": "geosite-category-ads-all",
-				"server": "dns_proxy"
-			},
 			{
 				"rule_set": "geosite-geolocation-!cn",
 				"server": "dns_proxy"
