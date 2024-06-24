@@ -32,7 +32,13 @@
 			{
 				"rule_set": "geosite-geolocation-!cn",
 				"server": "dns_proxy"
-			},
+			},	
+     			{
+      			        "rule_set": [
+    			        	"geosite-category-ads-all"
+    				    ],
+    			    	"server": "dns_block"
+    			},
 			{
 				"rule_set": "geosite-cn",
 				"server": "dns_direct"
@@ -118,7 +124,14 @@
 				"format": "binary",
 				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
 				"download_detour": "proxy"
-			}
+			},
+      			{
+        			"tag": "geosite-category-ads-all",
+        			"type": "remote",
+        			"format": "binary",
+        			"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        			"download_detour": "proxy"
+      			}
 		],
 		"rules": [{
 				"protocol": "dns",
