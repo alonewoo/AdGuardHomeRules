@@ -51,7 +51,9 @@
 			"type": "mixed",
 			"listen": "::",
 			"listen": "0.0.0.0",
-			"listen_port": 20172
+			"listen_port": 20172,
+            		"sniff": true,
+            		"sniff_override_destination": false
 		},
 		{
            		 "type": "tun",
