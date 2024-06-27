@@ -181,6 +181,16 @@
 				"rule_set": "geoip-cn",
 				"outbound": "direct"
 			},
+
+			{
+				"domain_suffix": [
+					"isexsex.com",
+					"aiyingshi.tv"，
+					"tongchengau.com"
+				]
+				"outbound": "proxy"
+			},
+
 			{
 				"ip_is_private": true,
 				"outbound": "direct"
