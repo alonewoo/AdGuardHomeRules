@@ -189,7 +189,7 @@
 					"aiyingshi.tv",
 					"tongchengau.com",
 					"spotify.com"
-				]
+				],
 				"outbound": "proxy"
 			},
 
