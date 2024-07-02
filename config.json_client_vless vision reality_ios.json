@@ -46,7 +46,7 @@
 					"tongchengau.com",
 					"spotify.com"
 				],
-				"outbound": "proxy"
+				"server": "proxy"
 			},
 			{
 				"rule_set": "geosite-cn",
