@@ -40,6 +40,15 @@
     			    	"server": "dns_block"
     			},
 			{
+				"domain_suffix": [
+					"isexsex.com",
+					"aiyingshi.tv"，
+					"tongchengau.com",
+					“spotify.com"
+				]
+				"outbound": "proxy"
+			},
+			{
 				"rule_set": "geosite-cn",
 				"server": "dns_direct"
 			}
@@ -186,7 +195,8 @@
 				"domain_suffix": [
 					"isexsex.com",
 					"aiyingshi.tv"，
-					"tongchengau.com"
+					"tongchengau.com",
+					“spotify.com"
 				]
 				"outbound": "proxy"
 			},
