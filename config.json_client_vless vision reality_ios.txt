@@ -33,13 +33,12 @@
 				"rule_set": "geosite-geolocation-!cn",
 				"server": "dns_proxy"
 			},	
-     			{
-      			        "rule_set": [
-    			        	"geosite-category-ads-all"
-    				    ],
-    			    	"server": "dns_block"
-    			},
-
+     		{
+      		 "rule_set": [
+    			 "geosite-category-ads-all"
+    			],
+    	 	"server": "dns_block"
+    		},
 			{
 				"rule_set": "geosite-cn",
 				"server": "dns_direct"
@@ -52,9 +51,9 @@
 			"type": "mixed",
 			"listen": "::",
 			"listen": "0.0.0.0",
-			"listen_port": 20172,
-            		"sniff": true,
-            		"sniff_override_destination": false
+			"listen_port": 20172，
+			 "sniff": true,
+             "sniff_override_destination": false
 		},
 		{
            		 "type": "tun",
@@ -182,14 +181,12 @@
 				"rule_set": "geoip-cn",
 				"outbound": "direct"
 			},
-
 			{
 				"domain_suffix": [
 					"isexsex.com",
-					"aiyingshi.tv",
-					"tongchengau.com",
-					"spotify.com"
-				],
+					"aiyingshi.tv"，
+					"tongchengau.com"
+				]
 				"outbound": "proxy"
 			},
 
