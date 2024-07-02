@@ -44,7 +44,7 @@
 					"isexsex.com",
 					"aiyingshi.tv",
 					"tongchengau.com",
-					“spotify.com"
+					"spotify.com"
 				]
 				"outbound": "proxy"
 			},
@@ -196,7 +196,7 @@
 					"isexsex.com",
 					"aiyingshi.tv",
 					"tongchengau.com",
-					“spotify.com"
+					"spotify.com"
 				]
 				"outbound": "proxy"
 			},
