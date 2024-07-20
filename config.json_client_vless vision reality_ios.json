@@ -72,7 +72,7 @@
             		"mtu": 1400,
             		"auto_route": true,
             		"strict_route": false,
-           		 "stack": "system",
+           		// "stack": "system",
             		"sniff": true,
             		"sniff_override_destination": false
 		}
