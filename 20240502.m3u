@@ -65,20 +65,39 @@ http://39.134.176.167/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/32212304
 
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619040207771.jpg" group-title="浙江杭州",杭州青少体育-5[768*576]
 http://39.134.176.167/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221230463/1.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619040207771.jpg" group-title="浙江杭州",杭州青少体育-5[1080]
+http://183.146.117.146:8888/udp/233.50.201.177:5140
+
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619035920539.jpg" group-title="浙江杭州",杭州生活-3[785*576]
 http://39.134.176.167/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221230472/1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619035920539.jpg" group-title="浙江杭州",杭州生活-3[1080]
+http://183.146.117.146:8888/udp/233.50.201.175:5140
+
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619035441577.jpg" group-title="浙江杭州",杭州影视-4[1080]
+http://183.146.117.146:8888/udp/233.50.201.176:5140
+
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619035441577.jpg" group-title="浙江杭州",杭州影视-4[768*576]
 http://39.134.176.167/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221230500/1.m3u8
+
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619034738537.jpg" group-title="浙江杭州",杭州综合-1[768*576]
 http://39.134.176.167/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221230497/1.m3u8
 
-#EXTINF:-1 group-title="浙江杭州" tvg-id="杭州综合频道" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619034738537.jpg",杭州综合频道
+
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619034738537.jpg" group-title="浙江杭州",杭州综合-1[1080]
+http://183.146.117.146:8888/udp/233.50.201.173:5140
+
 
 #EXTINF:-1 group-title="浙江杭州" tvg-id="杭州西湖明珠频道" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619034941446.jpg",杭州西湖明珠频道
+http://183.146.117.146:8888/udp/233.50.201.174:5140
+
+
 
 #EXTINF:-1 group-title="浙江杭州" tvg-id="杭州生活频道" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619035920539.jpg",杭州生活频道
+http://183.146.117.146:8888/udp/233.50.201.175:5140
 
 #EXTINF:-1 group-title="浙江杭州" tvg-id="杭州影视频道" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619035441577.jpg",杭州影视频道
+
 
 #EXTINF:-1 group-title="浙江杭州" tvg-id="杭州5套青少体育频道" tvg-logo="http://tv.haoqu99.com/d/file/2016/0619/20160619040207771.jpg",杭州5套青少体育频道
 
@@ -283,10 +302,13 @@ http://39.134.176.166/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/32212285
 #国际频道/18个频道
 
 #EXTINF:-1 tvg-id="D01" tvg-name="凤凰中文" tvg-logo="https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/Phoenix1.png" group-title="国际",凤凰中文
-http://play-flive.ifeng.com/live/06OLEGEGM4G.m3u8
+http://183.146.117.146:8888/udp/233.50.200.42:5140
+#EXTINF:-1 tvg-id="D01" tvg-name="凤凰中文" tvg-logo="https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/Phoenix1.png" group-title="国际",凤凰中文
+http://183.146.117.146:8888/udp/233.50.200.191:5140
 
 #EXTINF:-1 tvg-id="D02" tvg-name="凤凰资讯" tvg-logo="https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/Phoenix2.png" group-title="国际",凤凰资讯
-http://play-flive.ifeng.com/live/06OLEEWQKN4.m3u8
+http://183.146.117.146:8888/udp/233.50.200.192:5140
+
 
 
 #EXTINF:-1 tvg-id="D04" tvg-name="翡翠台" tvg-logo="https://cdn.jsdelivr.net/gh/wanglindl/TVlogo@main/img/TVB1.png" group-title="国际",翡翠台 
