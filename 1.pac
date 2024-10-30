@@ -12,10 +12,10 @@ function FindProxyForURL(urlList, host) {
         "feedly.com",
         "github.com",
         "epochtimes.com",
-        "nytimes.com"，
-        "bbc.com"，
-        "facebook.com"，
-        "isexsex.com"，
+        "nytimes.com",
+        "bbc.com",
+        "facebook.com",
+        "isexsex.com",
         "gmail.com"
     ];
 
@@ -29,3 +29,4 @@ function FindProxyForURL(urlList, host) {
     // 默认代理
     return "PROXY 192.168.200.180:20172";
 }
+
