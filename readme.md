@@ -40,4 +40,7 @@ https://anti-ad.net/easylist.txt
 ## 项目 Star 数增长趋势
 [![Stargazers over time](https://starchart.cc/mphin/adguardhome_rules.svg)](https://starchart.cc/mphin/adguardhome_rules)
 
+## 链接
+https://mirror.ghproxy.com/https://raw.githubusercontent.com/alonewoo/AdGuardHomeRules/main/config.json_client_vless vision reality_ios.json
+
 本仓库创建于2023年7月2日
