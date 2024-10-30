@@ -1,4 +1,4 @@
-function FindProxyForURL(url, host) {
+function FindProxyForURL(urlList, host) {
     // 定义需要通过第一个代理的URL清单
     var urlList = [
         "www.example1.com",
