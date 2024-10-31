@@ -1,9 +1,6 @@
 function FindProxyForURL(urlList, host) {
     // 定义需要通过第一个代理的URL清单
     var urlList = [
-        "www.example1.com",
-        "www.example2.com",
-        "www.example3.com",
         // 在此处添加更多的网址
         "google.com",
         "twitter.com",
@@ -16,7 +13,8 @@ function FindProxyForURL(urlList, host) {
         "bbc.com",
         "facebook.com",
         "isexsex.com",
-        "gmail.com"
+        "gmail.com",
+        "perplexity.ai"
     ];
 
     // 遍历清单，检查是否匹配
