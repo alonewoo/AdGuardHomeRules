@@ -26,6 +26,13 @@ function FindProxyForURL(url, host) {
          "example.org"
     ];
 
+    // 定义需要直接连接的域名清单
+    var directUrlList = [
+        "jd.com",
+        "smzdm.com",
+        "taobao.com"
+    ];
+
     // 检查是否在被阻止的域名清单中
     for (var j = 0; j < blockedDomains.length; j++) {
         if (dnsDomainIs(host, blockedDomains[j])) {
@@ -41,6 +48,13 @@ function FindProxyForURL(url, host) {
     // 检查是否在192.168.200.0/24网段内
     if (isInNet(dnsResolve(host), "192.168.200.0", "255.255.255.0")) {
         return "DIRECT"; // 直接连接192.168.200.0/24网段
+    }
+
+    // 检查是否在直接连接的域名清单中
+    for (var k = 0; k < directUrlList.length; k++) {
+        if (dnsDomainIs(host, directUrlList[k])) {
+            return "DIRECT"; // 直接连接指定域名
+        }
     }
 
     // 遍历代理URL清单，检查是否匹配
