@@ -30,6 +30,10 @@ function FindProxyForURL(url, host) {
     var directUrlList = [
         "jd.com",
         "smzdm.com",
+        "163.com",
+        "airasia.com",
+        "sina.com",
+        "tmall.com",
         "taobao.com"
     ];
 
