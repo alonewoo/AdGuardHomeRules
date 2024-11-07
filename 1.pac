@@ -34,6 +34,7 @@ function FindProxyForURL(url, host) {
         "airasia.com",
         "sina.com",
         "tmall.com",
+        "cnipa.gov.cn",
         "taobao.com"
     ];
 
