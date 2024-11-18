@@ -15,6 +15,7 @@ function FindProxyForURL(url, host) {
         "gmail.com",
         "cnn.com",
         "cloudflare.com",
+        "airasia.com",
         "perplexity.ai"
     ];
 
