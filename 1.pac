@@ -37,6 +37,7 @@ function FindProxyForURL(url, host) {
         "tmall.com",
         "cnipa.gov.cn",
         "snapdrop.net",
+        "wiz.cn",
         "taobao.com"
     ];
 
