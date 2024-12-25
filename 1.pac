@@ -40,6 +40,8 @@ function FindProxyForURL(url, host) {
         "snapdrop.net",
         "1ptba.com",
         "wiz.cn",
+        "qq.com",
+        "alicdn.com",
         "taobao.com"
     ];
 
@@ -58,6 +60,9 @@ function FindProxyForURL(url, host) {
     // 检查是否在192.168.200.0/24网段内
     if (isInNet(dnsResolve(host), "192.168.200.0", "255.255.255.0")) {
         return "DIRECT"; // 直接连接192.168.200.0/24网段
+    }
+    if (isInNet(dnsResolve(host), "101.33.17.0", "255.255.255.0")) {
+        return "DIRECT"; // 直接连接101.33.17.0/24子网
     }
 
     // 检查是否在直接连接的域名清单中
