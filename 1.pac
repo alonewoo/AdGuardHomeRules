@@ -31,6 +31,8 @@ function FindProxyForURL(url, host) {
     // 定义需要直接连接的域名清单
     var directUrlList = [
         "jd.com",
+         "csc-static.sgcc.com.cn",
+         "csc-static.sgcc.com.cn.ctdns.cn",
         "smzdm.com",
         "163.com",
         "airasia.com",
