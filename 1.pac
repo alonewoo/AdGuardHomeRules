@@ -32,7 +32,7 @@ function FindProxyForURL(url, host) {
     var directUrlList = [
         "jd.com",
          "csc-static.sgcc.com.cn",
-         "csc-static.sgcc.com.cn.ctdns.cn",
+         "aliyuncs.com",
         "smzdm.com",
         "163.com",
         "airasia.com",
