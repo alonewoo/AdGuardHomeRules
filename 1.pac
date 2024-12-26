@@ -31,12 +31,6 @@ function FindProxyForURL(url, host) {
     // 定义需要直接连接的域名清单
     var directUrlList = [
         "jd.com",
-         "sgcc.com.cn",  //网上国网
-        "pm.ens.gslb.fpdns.ctycdn.cn", 
-        "csc-static.sgcc.com.cn.ctdns.cn", 
-        "e7279.dsce9.akamaiedge.net", 
-        "alibabadns.com", 
-         "aliyuncs.com",
         "smzdm.com",
         "163.com",
         "airasia.com",
