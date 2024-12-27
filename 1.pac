@@ -43,6 +43,7 @@ function FindProxyForURL(url, host) {
         "*.qq.com",
         "*.alicdn.com",
         "*.taobao.com",
+         "*.accuweather.com",
         "a1.mzstatic.com",
         "a2.mzstatic.com",
         "a3.mzstatic.com",
