@@ -22,7 +22,7 @@ function FindProxyForURL(url, host) {
 
     // 定义需要被阻止的域名清单
     var blockedDomains = [
-        "*store.wiris.com",
+        "store.wiris.com",
         "*.sogowan.com",
          "*.awaliwa.com",
          "example.org"
