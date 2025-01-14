@@ -46,6 +46,8 @@ function FindProxyForURL(url, host) {
         "*.accuweather.com",
         "*.cponline.cnipa.gov.cn",
          "*.douban.com",
+         "*.patent9.com",
+        "patent9.com",
         "a1.mzstatic.com",
         "a2.mzstatic.com",
         "a3.mzstatic.com",
