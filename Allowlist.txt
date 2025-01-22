@@ -1,5 +1,5 @@
 ! Title: AdGuardHome白名单
-! Version: 202501221608
+! Version: 202501221610
 ! Homepage: https://github.com/mphin/AdGuardHomeRules
 ! Total lines: 136
 ! Note: 本规则相对于隐私保护更注重功能性、便捷性和效率。建议与 anti-AD 主规则一同使用：https://anti-ad.net/easylist.txt
@@ -37,10 +37,10 @@ huichuan-mc.sm.cn^
 huichuan.sm.cn^
 vps.uc.cn^
 ! > UC直播
+quark.cn^
 ulive-interact.uc.cn^
 ulive-sc.uc.cn^
 v.uc.cn^
-quark.cn^
 
 
 ! > 字节跳动
