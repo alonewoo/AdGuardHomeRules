@@ -61,7 +61,7 @@
 			"listen": "::",
 			"listen": "0.0.0.0",
 			"listen_port": 20172,
-			 "sniff": true,
+			//20250205 "sniff": true,
              "sniff_override_destination": false
 		},
 		{
@@ -71,8 +71,8 @@
 				"172.16.0.1/30",
 				"fdfe:dcba:9876::1/126"
 			]
-			# "inet4_address": "172.16.0.1/30",
-		        # "inet6_address": "fdfe:dcba:9876::1/126",
+			// "inet4_address": "172.16.0.1/30",
+		        // "inet6_address": "fdfe:dcba:9876::1/126",
             		"mtu": 1400,
             		"auto_route": true,
             		"strict_route": false,
@@ -108,14 +108,15 @@
 			"type": "direct", // 直连类型，不通过代理直接访问
 			"tag": "direct" // 标签名为 "direct"
 		},
-		# {
-		#	"type": "block", // 阻止类型，用于拦截流量
-		#	"tag": "block" // 标签名为 "block"
-		# },
-		{
-			"type": "dns", // DNS 类型，用于 DNS 查询
-			"tag": "dns-out" // 标签名为 "dns-out"
-		}
+		//20250205
+		// {
+		//	"type": "block", // 阻止类型，用于拦截流量
+		//	"tag": "block" // 标签名为 "block"
+		// },
+		// {
+		//	"type": "dns", // DNS 类型，用于 DNS 查询
+		//	"tag": "dns-out" // 标签名为 "dns-out"
+		// }
 	],
 
 	"route": {
@@ -131,32 +132,40 @@
 				"type": "remote",
 				"format": "binary",
 				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-				"download_detour": "direct"
+				"download_detour": "proxy"
 			},
 			{
 				"tag": "geosite-cn",
 				"type": "remote",
 				"format": "binary",
 				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-				"download_detour": "direct"
+				"download_detour": "proxy
 			},
       			{
         			"tag": "geosite-category-ads-all",
         			"type": "remote",
         			"format": "binary",
         			"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-        			# "download_detour": "proxy"
-				"action": reject
-      			}
+        			"download_detour": "proxy"
+				}
 		],
-		"rules": [{
-				"protocol": "dns",
-				"outbound": "dns-out"
+		"rules": [
+			//20250205{
+			//	"protocol": "dns",
+			//	"outbound": "dns-out"
+			//},
+			{
+			       "action": "sniff"
 			},
+			{
+				"protocol": "dns",
+				"action": "hijack-dns"
+			}
 			{
 				"port": 853,
 				"network": "tcp",
-				"outbound": "block"
+				//20250205 "outbound": "block"
+				"action": "reject"
 			},
 			{
 				"port": [
@@ -164,7 +173,8 @@
 					853
 				],
 				"network": "udp",
-				"outbound": "block"
+				//20250205 "outbound": "block"
+				"action": "reject"
 			},
 			{
 				"type": "logical",
