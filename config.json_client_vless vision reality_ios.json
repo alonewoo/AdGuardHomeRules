@@ -108,10 +108,10 @@
 			"type": "direct", // 直连类型，不通过代理直接访问
 			"tag": "direct" // 标签名为 "direct"
 		},
-		{
-			"type": "block", // 阻止类型，用于拦截流量
-			"tag": "block" // 标签名为 "block"
-		},
+		# {
+		#	"type": "block", // 阻止类型，用于拦截流量
+		#	"tag": "block" // 标签名为 "block"
+		# },
 		{
 			"type": "dns", // DNS 类型，用于 DNS 查询
 			"tag": "dns-out" // 标签名为 "dns-out"
@@ -131,21 +131,22 @@
 				"type": "remote",
 				"format": "binary",
 				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-				"download_detour": "proxy"
+				"download_detour": "direct"
 			},
 			{
 				"tag": "geosite-cn",
 				"type": "remote",
 				"format": "binary",
 				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-				"download_detour": "proxy"
+				"download_detour": "direct"
 			},
       			{
         			"tag": "geosite-category-ads-all",
         			"type": "remote",
         			"format": "binary",
         			"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-        			"download_detour": "proxy"
+        			# "download_detour": "proxy"
+				"action": reject
       			}
 		],
 		"rules": [{
