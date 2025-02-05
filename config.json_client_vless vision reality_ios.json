@@ -2,15 +2,19 @@
 	"dns": {
 		"servers": [{
 				"tag": "dns_proxy",
-				"address": "https://1.1.1.1/dns-query",
+				//20250205 "address": "https://1.1.1.1/dns-query",
 				"address_resolver": "dns_resolver",
+				"type": "https",
+				"server": "1.1.1.1",
 				"strategy": "ipv4_only",
 				"detour": "proxy"
 			},
 			{
 				"tag": "dns_direct",
-				"address": "https://dns.alidns.com/dns-query",
+				//20250205 "address": "https://dns.alidns.com/dns-query",
 				"address_resolver": "dns_resolver",
+				"type": "https",
+				"server": "dns.alidns.com",
 				"strategy": "ipv4_only",
 				"detour": "direct"
 			},
@@ -20,7 +24,9 @@
 			},
 			{
 				"tag": "dns_resolver",
-				"address": "223.5.5.5",
+				//20250205 "address": "223.5.5.5",
+				"type": "udp",
+				"server": "223.5.5.5",
 				"strategy": "ipv4_only",
 				"detour": "direct"
 			}
