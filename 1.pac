@@ -25,6 +25,7 @@ function FindProxyForURL(url, host) {
         "store.wiris.com",
         "*.sogowan.com",
          "*.awaliwa.com",
+        "sogowan.com",
          "example.org"
     ];
 
