@@ -234,7 +234,7 @@ function FindProxyForURL(url, host) {
     // 遍历代理URL清单，检查是否匹配
     for (var i = 0; i < proxyUrlList.length; i++) {
         if (shExpMatch(host, proxyUrlList[i])) {
-            return "PROXY 192.168.200.199:20172"; // 使用第一个代理
+            return "PROXY 192.168.200.180:20172"; // 使用第一个代理
         }
     }
 
