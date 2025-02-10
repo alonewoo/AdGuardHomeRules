@@ -5,81 +5,56 @@
 	},
 	"dns": {
 		"servers": [{
-				"tag": "dns_proxy",
-				"address_resolver": "dns_resolver",
-				"type": "https",
-				"strategy": "ipv4_only",
-				"detour": "proxy"
-			},
-			{
-				"tag": "dns_direct",
-				"address_resolver": "dns_resolver",
-				"type": "https",
-				"server": "dns.alidns.com",
-				"detour": "direct"
-			},
-			{
-				"tag": "dns_resolver",
-				"type": "udp",
-				"server": "223.5.5.5",
-				"detour": "direct"
-			},
-			{
-				"tag": "dns_refused",
-				"address": "rcode://refused"
-			},
-			{
-				"tag": "dns_success",
-				"address": "rcode://success"
-			},
-			{
-				"tag": "dns_fakeip",
-				"address": "fakeip"
-			}
-		],
+			"tag": "dns_proxy",
+			"address_resolver": "dns_resolver",
+			"type": "https",
+			"strategy": "ipv4_only",
+			"detour": "proxy"
+		}, {
+			"tag": "dns_direct",
+			"address_resolver": "dns_resolver",
+			"type": "https",
+			"server": "dns.alidns.com",
+			"detour": "direct"
+		}, {
+			"tag": "dns_resolver",
+			"type": "udp",
+			"server": "223.5.5.5",
+			"detour": "direct"
+		}, {
+			"tag": "dns_refused",
+			"address": "rcode://refused"
+		}, {
+			"tag": "dns_success",
+			"address": "rcode://success"
+		}, {
+			"tag": "dns_fakeip",
+			"address": "fakeip"
+		}],
 		"rules": [{
-				"outbound": "any",
-				"server": "dns_resolver"
-			},
-			{
-				"rule_set": "geosite-geolocation-!cn",
-				"query_type": [
-					"A",
-					"AAAA"
-				],
-				"server": "dns_fakeip"
-			},
-			{
-				"rule_set": "geosite-geolocation-!cn",
-				"query_type": [
-					"CNAME"
-				],
-				"server": "dns_proxy"
-			},
-			{
-				"query_type": [
-					"A",
-					"AAAA",
-					"CNAME"
-				],
-				"invert": true,
-				"server": "dns_refused",
-				"action": "route-options",
-				"disable_cache": true
-			} {
-				"domain_suffix": [
-					"isexsex.com",
-					"aiyingshi.tv",
-					"tongchengau.com",
-					"spotify.com"
-				],
-				"server": "dns_proxy"
-			},
-			{
-				"rule_set": "geosite-cn",
-				"server": "dns_direct"
-			}
-		],
+			"outbound": "any",
+			"server": "dns_resolver"
+		}, {
+			"rule_set": "geosite-geolocation-!cn",
+			"query_type": ["A", "AAAA"],
+			"server": "dns_fakeip"
+		}, {
+			"rule_set": "geosite-geolocation-!cn",
+			"query_type": ["CNAME"],
+			"server": "dns_proxy"
+		}, {
+			"query_type": ["A", "AAAA", "CNAME"],
+			"invert": true,
+			"server": "dns_refused",
+			"action": "route-options",
+			"disable_cache": true
+		} {
+			"domain_suffix": ["isexsex.com", "aiyingshi.tv", "tongchengau.com", "spotify.com"],
+			"server": "dns_proxy"
+		}, {
+			"rule_set": "geosite-cn",
+			"server": "dns_direct"
+		}],
 		"final": "dns_direct",
 		"independent_cache": true,
 		"fakeip": {
@@ -88,164 +63,49 @@
 			"inet6_range": "fc00::/18"
 		}
 	},
-
-	"inbounds": [{
+	"inbounds": [
+        {
 			"type": "mixed",
 			"listen": "::",
 			"listen": "0.0.0.0",
 			"listen_port": 20172,
-		},
-
-		{
+	    }, 
+        {
 			"type": "tun",
 			"tag": "tun-in",
-			"address": [
-				"172.16.0.1/30",
-				"fd00::1/126"
-			]
+			"address": ["172.16.0.1/30", "fd00::1/126"]
 			"mtu": 1400,
 			"auto_route": true,
 			"strict_route": true "stack": "system",
 		}
-	],
-
-	"outbounds": [{
-			"type": "vless",
-			"tag": "proxy",
-			"server": "152.69.161.157",
-			"server_port": 443,
-			"uuid": "d1769017-25d9-41b2-8f0c-c00952a9f317",
-			"flow": "xtls-rprx-vision",
-			"tls": {
-				"enabled": true,
-				"server_name": "www.universalholiday.com.au",
-				"utls": {
+    ],
+	"outbounds": [
+        {
+				"type": "vless",
+				"tag": "proxy",
+				"server": "152.69.161.157",
+				"server_port": 443,
+				"uuid": "d1769017-25d9-41b2-8f0c-c00952a9f317",
+				"flow": "xtls-rprx-vision",
+				"tls": {
 					"enabled": true,
-					"fingerprint": "chrome"
+					"server_name": "www.universalholiday.com.au",
+					"utls": {
+						"enabled": true,
+						"fingerprint": "chrome"
+					},
+					"reality": {
+						"enabled": true,
+						"public_key": "02QRu_3Cid7_yMA6MfmoallbVLGpf4j4pv9dt1nBhSk",
+						"short_id": "7612f6bb29738985"
+						}
 				},
-				"reality": {
-					"enabled": true,
-					"public_key": "02QRu_3Cid7_yMA6MfmoallbVLGpf4j4pv9dt1nBhSk",
-					"short_id": "7612f6bb29738985"
-				}
-			},
-			"packet_encoding": "xudp"
-		},
-		{
-			"type": "direct", // 直连类型，不通过代理直接访问
-			"tag": "direct" // 标签名为 "direct"
-		},
-		//20250205
-		// {
-		//	"type": "block", // 阻止类型，用于拦截流量
-		//	"tag": "block" // 标签名为 "block"
-		// },
-		// {
-		//	"type": "dns", // DNS 类型，用于 DNS 查询
-		//	"tag": "dns-out" // 标签名为 "dns-out"
-		// }
-	],
-
-	"route": {
-		"rule_set": [{
-				"tag": "geosite-geolocation-!cn",
-				"type": "remote",
-				"format": "binary",
-				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-				"download_detour": "proxy"
-			},
-			{
-				"tag": "geoip-cn",
-				"type": "remote",
-				"format": "binary",
-				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-				"download_detour": "proxy"
-			},
-			{
-				"tag": "geosite-cn",
-				"type": "remote",
-				"format": "binary",
-				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-				"download_detour": "proxy
-			},
-			{
-				"tag": "geosite-category-ads-all",
-				"type": "remote",
-				"format": "binary",
-				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-				"download_detour": "proxy"
-			}
-		],
-		"rules": [
-			//20250205{
-			//	"protocol": "dns",
-			//	"outbound": "dns-out"
-			//},
-			{
-				"action": "sniff"
-			},
-			{
-				"protocol": "dns",
-				"action": "hijack-dns"
-			} {
-				"port": 853,
-				"network": "tcp",
-				"action": "reject"
-			},
-			{
-				"port": [
-					443,
-					853
-				],
-				"network": "udp",
-				//20250205 "outbound": "block"
-				"action": "reject"
-			},
-			{
-				"type": "logical",
-				"mode": "and",
-				"rules": [{
-						"rule_set": "geoip-cn",
-						"invert": true
-					},
-					{
-						"rule_set": "geosite-geolocation-!cn"
-					}
-				],
-				"outbound": "proxy"
-			},
-			{
-				"type": "logical",
-				"mode": "and",
-				"rules": [{
-						"rule_set": "geoip-cn"
-					},
-					{
-						"rule_set": "geosite-cn"
-					}
-				],
-				"outbound": "direct"
-			},
-			{
-				"rule_set": "geoip-cn",
-				"outbound": "direct"
-			},
-			{
-				"domain_suffix": [
-					"isexsex.com",
-					"aiyingshi.tv",
-					"tongchengau.com",
-					"spotify.com"
-				],
-				"outbound": "proxy"
-			},
-
-			{
-				"ip_is_private": true,
-				"outbound": "direct"
-			}
-		],
-		"final": "direct",
-		"auto_detect_interface": true
-	}
+				"packet_encoding": "xudp"
+			}, 
+        
+        {
+				"type": "direct",  //直连类型，不通过代理直接访问
+                 "tag":"direct", //标签名为"direct"
+        },
+    ]
 }
