@@ -1,81 +1,72 @@
 {
 	"log": {
-	        "level": "info",
-	        "timestamp": true
-	    },
+		"level": "info",
+		"timestamp": true
+	},
 	"dns": {
-		"servers": [
-			{
+		"servers": [{
 				"tag": "dns_proxy",
-				//20250205 "address": "https://1.1.1.1/dns-query",
 				"address_resolver": "dns_resolver",
 				"type": "https",
-				// "server": "1.1.1.1",
 				"strategy": "ipv4_only",
 				"detour": "proxy"
 			},
 			{
 				"tag": "dns_direct",
-				//20250205 "address": "https://dns.alidns.com/dns-query",
 				"address_resolver": "dns_resolver",
 				"type": "https",
 				"server": "dns.alidns.com",
-				// "strategy": "ipv4_only",
 				"detour": "direct"
 			},
 			{
 				"tag": "dns_resolver",
-				//20250205 "address": "223.5.5.5",
 				"type": "udp",
 				"server": "223.5.5.5",
-				// "strategy": "ipv4_only",
 				"detour": "direct"
 			},
 			{
 				"tag": "dns_refused",
 				"address": "rcode://refused"
 			},
-          			{
-			                "tag": "dns_success",
-			                "address": "rcode://success"
+			{
+				"tag": "dns_success",
+				"address": "rcode://success"
 			},
 			{
-			                "tag": "dns_fakeip",
-			                "address": "fakeip"
+				"tag": "dns_fakeip",
+				"address": "fakeip"
 			}
 		],
-		"rules": [
+		"rules": [{
+				"outbound": "any",
+				"server": "dns_resolver"
+			},
 			{
-			                "outbound": "any",
-			                "server": "dns_resolver"
-	                                 },
-            			{
-                			"rule_set": "geosite-geolocation-!cn",
-			                "query_type": [
-			                    "A",
-			                    "AAAA"
-                			],
-			                "server": "dns_fakeip"
-            			},
-		               {
-			                "rule_set": "geosite-geolocation-!cn",
-			                "query_type": [
-			                    "CNAME"
-			                ],
-                			"server": "dns_proxy"
-            			},
-            			{
-               				 "query_type": [
-			                    "A",
-			                    "AAAA",
-			                    "CNAME"
-                			],
-                			"invert": true,
-                			"server": "dns_refused",
-               				 "action": "route-options",
-			                "disable_cache": true
-            			}
+				"rule_set": "geosite-geolocation-!cn",
+				"query_type": [
+					"A",
+					"AAAA"
+				],
+				"server": "dns_fakeip"
+			},
 			{
+				"rule_set": "geosite-geolocation-!cn",
+				"query_type": [
+					"CNAME"
+				],
+				"server": "dns_proxy"
+			},
+			{
+				"query_type": [
+					"A",
+					"AAAA",
+					"CNAME"
+				],
+				"invert": true,
+				"server": "dns_refused",
+				"action": "route-options",
+				"disable_cache": true
+			} {
 				"domain_suffix": [
 					"isexsex.com",
 					"aiyingshi.tv",
@@ -89,13 +80,13 @@
 				"server": "dns_direct"
 			}
 		],
-	              "final": "dns_direct",
-	              "independent_cache": true,
-	              "fakeip": {
-		       	       "enabled": true,
-	       		        "inet4_range": "198.18.0.0/15",
-			        "inet6_range": "fc00::/18"
-	               }
+		"final": "dns_direct",
+		"independent_cache": true,
+		"fakeip": {
+			"enabled": true,
+			"inet4_range": "198.18.0.0/15",
+			"inet6_range": "fc00::/18"
+		}
 	},
 
 	"inbounds": [{
@@ -103,26 +94,18 @@
 			"listen": "::",
 			"listen": "0.0.0.0",
 			"listen_port": 20172,
-			//20250205 "sniff": true,
-           			//  "sniff_override_destination": false
 		},
 
 		{
-           		"type": "tun",
-            		"tag": "tun-in",
-		"address": [
+			"type": "tun",
+			"tag": "tun-in",
+			"address": [
 				"172.16.0.1/30",
 				"fd00::1/126"
-				//"fdfe:dcba:9876::1/126"
 			]
-		        // "inet4_address": "172.16.0.1/30",
-		        // "inet6_address": "fdfe:dcba:9876::1/126",
-            		"mtu": 1400,
-            		"auto_route": true,
-            		"strict_route": true
-           		"stack": "system",
-            		// "sniff": true,
-            		// "sniff_override_destination": false
+			"mtu": 1400,
+			"auto_route": true,
+			"strict_route": true "stack": "system",
 		}
 	],
 
@@ -185,13 +168,13 @@
 				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
 				"download_detour": "proxy
 			},
-      			{
-        			"tag": "geosite-category-ads-all",
-        			"type": "remote",
-        			"format": "binary",
-        			"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
-        			"download_detour": "proxy"
-				}
+			{
+				"tag": "geosite-category-ads-all",
+				"type": "remote",
+				"format": "binary",
+				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+				"download_detour": "proxy"
+			}
 		],
 		"rules": [
 			//20250205{
@@ -199,16 +182,14 @@
 			//	"outbound": "dns-out"
 			//},
 			{
-			       "action": "sniff"
+				"action": "sniff"
 			},
 			{
 				"protocol": "dns",
 				"action": "hijack-dns"
-			}
-			{
+			} {
 				"port": 853,
 				"network": "tcp",
-				//20250205 "outbound": "block"
 				"action": "reject"
 			},
 			{
@@ -267,6 +248,4 @@
 		"final": "direct",
 		"auto_detect_interface": true
 	}
-
-
 }
