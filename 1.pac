@@ -17,7 +17,9 @@ function FindProxyForURL(url, host) {
         "*.cloudflare.com",
         "*.airasia.com",
         "*.gemini.google.com",
-        "*.perplexity.ai"
+        "*.perplexity.ai",
+        "*.grok.com",
+        "grok.com"
     ];
 
     // 定义需要被阻止的域名清单
