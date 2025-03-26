@@ -19,7 +19,8 @@ function FindProxyForURL(url, host) {
         "*.gemini.google.com",
         "*.perplexity.ai",
         "*.grok.com",
-        "grok.com"
+        "grok.com",
+        "z-library.sk"
     ];
 
     // 定义需要被阻止的域名清单
