@@ -20,8 +20,7 @@ function FindProxyForURL(url, host) {
         "*.perplexity.ai",
         "*.grok.com",
         "grok.com",
-        "z-library.sk"，
-        "tv.garden"
+        "z-library.sk"
     ];
 
     // 定义需要被阻止的域名清单
