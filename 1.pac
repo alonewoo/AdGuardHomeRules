@@ -19,8 +19,7 @@ function FindProxyForURL(url, host) {
         "*.gemini.google.com",
         "*.perplexity.ai",
         "*.grok.com",
-        "grok.com",
-        "z-library.sk"
+        "grok.com"
     ];
 
     // 定义需要被阻止的域名清单
@@ -255,7 +254,9 @@ function FindProxyForURL(url, host) {
     if (isInNet(dnsResolve(host), "101.33.17.0", "255.255.255.0")) {
         return "DIRECT"; // 直接连接101.33.17.0/24子网
     }
-
+    if (isInNet(dnsResolve(host), "192.168.196.0", "255.255.255.0")) {
+        return "DIRECT"; // 直接连接192.168.196.0/24子网
+    }
     // 检查是否在直接连接的域名清单中
     for (var k = 0; k < directUrlList.length; k++) {
         if (dnsDomainIs(host, directUrlList[k])) {
