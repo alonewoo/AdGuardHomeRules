@@ -1,0 +1,94 @@
+{
+	"log": {
+		"level": "info",
+		"timestamp": true
+	},
+	"dns": {
+		"servers": [{
+			"tag": "dns_proxy",
+			"address_resolver": "dns_resolver",
+			"type": "https",
+			"server": "https://1.1.1.1/dns-query", // 示例：使用Cloudflare DoH
+			"strategy": "ipv4_only",
+			"detour": "proxy"
+		}, {
+			"tag": "dns_direct",
+			"address_resolver": "dns_resolver",
+			"type": "https",
+			"server": "https://223.5.5.5/dns-query", // 示例：使用阿里公共DNS
+			"detour": "direct"
+		}, {
+			"tag": "dns_resolver",
+			"type": "udp",
+			"server": "223.5.5.5",
+			"detour": "direct"
+		}, {
+			"tag": "dns_fakeip",
+			"address": "fakeip"
+		}],
+		"rules": [{
+			"rule_set": "geosite-cn",
+			"server": "dns_direct"
+		}, {
+			"domain_suffix": ["isexsex.com", "aiyingshi.tv", "tongchengau.com", "spotify.com"],
+			"server": "dns_proxy"
+		}, {
+			"rule_set": "geosite-geolocation-!cn",
+			"query_type": ["CNAME"],
+			"server": "dns_proxy"
+		}, {
+			"rule_set": "geosite-geolocation-!cn",
+			"server": "dns_fakeip"
+		}],
+		"final": "dns_direct",
+		"independent_cache": true,
+		"fakeip": {
+			"enabled": true,
+			"inet4_range": "198.18.0.0/15",
+			"inet6_range": "fc00::/18"
+		}
+	},
+	"inbounds": [
+		{
+			"type": "mixed",
+			"listen": "0.0.0.0",
+			"listen_port": 20172
+		},
+		{
+			"type": "tun",
+			"tag": "tun-in",
+			"address": ["172.16.0.1/30", "fd00::1/126"],
+			"mtu": 1400,
+			"auto_route": true,
+			"strict_route": true,
+			"stack": "system"
+		}
+	],
+	"outbounds": [
+		{
+			"type": "vless",
+			"tag": "proxy",
+			"server": "152.69.161.157",
+			"server_port": 443,
+			"uuid": "d1769017-25d9-41b2-8f0c-c00952a9f317",
+			"flow": "xtls-rprx-vision",
+			"tls": {
+				"enabled": true,
+				"server_name": "www.universalholiday.com.au",
+				"utls": {
+					"enabled": true,
+					"fingerprint": "chrome"
+				},
+				"reality": {
+					"enabled": true,
+					"public_key": "02QRu_3Cid7_yMA6MfmoallbVLGpf4j4pv9dt1nBhSk",
+					"short_id": "7612f6bb29738985"
+				}
+			}
+		},
+		{
+			"type": "direct",
+			"tag": "direct"
+		}
+	]
+}
