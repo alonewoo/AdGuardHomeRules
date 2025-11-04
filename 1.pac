@@ -19,7 +19,10 @@ function FindProxyForURL(url, host) {
         "*.gemini.google.com",
         "*.perplexity.ai",
         "*.grok.com",
-        "grok.com"
+        "grok.com",
+        "69shuba.com",
+        "69shuba.top",
+        "qzz.io"
     ];
 
     // 定义需要被阻止的域名清单
@@ -267,6 +270,6 @@ function FindProxyForURL(url, host) {
 
 
     // 默认代理
-    return "PROXY 192.168.200.180:20172"; // 使用默认代理
+    return "PROXY 192.168.200.199:20172"; // 使用默认代理
     // return "DIRECT";
 }
