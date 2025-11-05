@@ -20,9 +20,9 @@ function FindProxyForURL(url, host) {
         "*.perplexity.ai",
         "*.grok.com",
         "grok.com",
-        "69shuba.com",
-        "69shuba.top",
-        "qzz.io"
+        "*.69shuba.com",
+        "*.69shuba.top",
+        "*.qzz.io"
     ];
 
     // 定义需要被阻止的域名清单
