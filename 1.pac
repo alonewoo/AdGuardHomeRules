@@ -1,4 +1,4 @@
-function FindProxyForURL(url, host) {
+function FindProxyForURL1(url, host) {
     // 定义需要通过第一个代理的URL清单
     var proxyUrlList = [
         "*.google.com",
@@ -19,7 +19,11 @@ function FindProxyForURL(url, host) {
         "*.gemini.google.com",
         "*.perplexity.ai",
         "*.grok.com",
-        "grok.com",
+        "grok.com"
+    ];
+function FindProxyForUR2L(url, host) {
+    // 定义需要通过第2个代理的URL清单
+    var proxyUrlList = [
         "*.69shuba.com",
         "*.69shuba.top",
         "*.qzz.io"
@@ -239,9 +243,15 @@ function FindProxyForURL(url, host) {
     }
 
     // 遍历代理URL清单，检查是否匹配
-    for (var i = 0; i < proxyUrlList.length; i++) {
-        if (shExpMatch(host, proxyUrlList[i])) {
+    for (var i = 0; i < proxyUrlList1.length; i++) {
+        if (shExpMatch(host, proxyUrlList1[i])) {
             return "PROXY 192.168.200.199:20172"; // 使用第一个代理
+        }
+    }
+
+    for (var k = 0; k < proxyUrlList2.length; k++) {
+        if (shExpMatch(host, proxyUrlList2[i])) {
+            return "PROXY 192.168.200.180:20172"; // 使用第2个代理
         }
     }
 
