@@ -1,6 +1,6 @@
-function FindProxyForURL1(url, host) {
+function FindProxyForURL(url, host) {
     // 定义需要通过第一个代理的URL清单
-    var proxyUrlList = [
+    var proxyUrlList1 = [
         "*.google.com",
         "*.twitter.com",
         "*.xda-developers.com",
@@ -21,9 +21,9 @@ function FindProxyForURL1(url, host) {
         "*.grok.com",
         "grok.com"
     ];
-function FindProxyForUR2L(url, host) {
+
     // 定义需要通过第2个代理的URL清单
-    var proxyUrlList = [
+    var proxyUrlList2 = [
         "*.69shuba.com",
         "*.69shuba.top",
         "*.qzz.io"
