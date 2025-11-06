@@ -250,7 +250,7 @@ function FindProxyForURL(url, host) {
     }
 
     for (var k = 0; k < proxyUrlList2.length; k++) {
-        if (shExpMatch(host, proxyUrlList2[i])) {
+        if (shExpMatch(host, proxyUrlList2[k])) {
             return "PROXY 192.168.200.180:20172"; // 使用第2个代理
         }
     }
@@ -271,8 +271,8 @@ function FindProxyForURL(url, host) {
         return "DIRECT"; // 直接连接192.168.196.0/24子网
     }
     // 检查是否在直接连接的域名清单中
-    for (var k = 0; k < directUrlList.length; k++) {
-        if (dnsDomainIs(host, directUrlList[k])) {
+    for (var n = 0; n < directUrlList.length; n++) {
+        if (dnsDomainIs(host, directUrlList[n)) {
             return "DIRECT"; // 直接连接指定域名
         }
     }
@@ -280,6 +280,6 @@ function FindProxyForURL(url, host) {
 
 
     // 默认代理
-    return "PROXY 192.168.200.199:20172"; // 使用默认代理
-    // return "DIRECT";
+    // return "PROXY 192.168.200.199:20172"; // 使用默认代理
+    return "DIRECT";
 }
