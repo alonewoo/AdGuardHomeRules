@@ -25,6 +25,7 @@ function FindProxyForURL(url, host) {
     // 定义需要通过第2个代理的URL清单
     var proxyUrlList2 = [
         "*.69shuba.com",
+        "69shuba.com",
         "*.69shuba.top",
         "*.qzz.io"
     ];
