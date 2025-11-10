@@ -42,7 +42,6 @@ function FindProxyForURL(url, host) {
         "jd.com",
         "smzdm.com",
         "163.com",
-        "airasia.com",
         "sina.com",
         "tmall.com",
         "cnipa.gov.cn",
