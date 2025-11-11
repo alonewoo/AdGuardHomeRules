@@ -18,6 +18,7 @@ function FindProxyForURL(url, host) {
         "*.airasia.com",
         "*.gemini.google.com",
         "*.perplexity.ai",
+        "*.claude.ai",
         "*.grok.com"
     ];
 
