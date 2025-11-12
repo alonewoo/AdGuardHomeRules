@@ -19,7 +19,8 @@ function FindProxyForURL(url, host) {
         "*.gemini.google.com",
         "*.perplexity.ai",
         "*.claude.ai",
-        "*.grok.com"
+        "*.grok.com",
+        "*.zeabur.com"
     ];
 
     // 定义需要通过第2个代理的URL清单
