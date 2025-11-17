@@ -2,34 +2,28 @@
 	"dns": {
 		"servers": [{
 				"tag": "dns_proxy",
-				//20250205 "address": "https://1.1.1.1/dns-query",
-				"address_resolver": "dns_resolver",
-				"type": "https",
-				"server": "1.1.1.1",
-				"strategy": "ipv4_only",
-				"detour": "proxy"
+        		"address": "https://1.1.1.1/dns-query",
+        		"address_resolver": "dns_resolver",
+        		"strategy": "ipv4_only",
+        		"detour": "proxy"
 			},
-			{
-				"tag": "dns_direct",
-				//20250205 "address": "https://dns.alidns.com/dns-query",
-				"address_resolver": "dns_resolver",
-				"type": "https",
-				"server": "dns.alidns.com",
-				"strategy": "ipv4_only",
-				"detour": "direct"
-			},
-			{
-				"tag": "dns_block",
-				"address": "rcode://refused"
-			},
-			{
-				"tag": "dns_resolver",
-				//20250205 "address": "223.5.5.5",
-				"type": "udp",
-				"server": "223.5.5.5",
-				"strategy": "ipv4_only",
-				"detour": "direct"
-			}
+			{	
+        		"tag": "dns_direct",
+        		"address": "https://dns.alidns.com/dns-query",
+        		"address_resolver": "dns_resolver",
+        		"strategy": "ipv4_only",
+        		"detour": "direct"
+      		},
+      		{	
+        		"tag": "dns_block",
+        		"address": "rcode://refused"
+      		},		
+      		{
+        		"tag": "dns_resolver",
+        		"address": "223.5.5.5",
+        		"strategy": "ipv4_only",
+        		"detour": "direct"
+      		}
 		],
 		"rules": [{
 				"outbound": "any",
@@ -50,7 +44,8 @@
 					"isexsex.com",
 					"aiyingshi.tv",
 					"tongchengau.com",
-					"spotify.com"
+					"spotify.com",
+					"69shuba.com"
 				],
 				"server": "dns_proxy"
 			},
@@ -65,10 +60,10 @@
 	"inbounds": [{
 			"type": "mixed",
 			"listen": "::",
-			"listen": "0.0.0.0",
+			// "listen": "0.0.0.0",
 			"listen_port": 20172,
-			//20250205 "sniff": true,
-             "sniff_override_destination": false
+			"sniff": true,
+            "sniff_override_destination": false
 		},
 		{
            		"type": "tun",
@@ -145,13 +140,13 @@
 				"type": "remote",
 				"format": "binary",
 				"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-				"download_detour": "proxy
+				"download_detour": "proxy"
 			},
       			{
         			"tag": "geosite-category-ads-all",
         			"type": "remote",
         			"format": "binary",
-        			"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        			"url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
         			"download_detour": "proxy"
 				}
 		],
@@ -166,7 +161,7 @@
 			{
 				"protocol": "dns",
 				"action": "hijack-dns"
-			}
+			},
 			{
 				"port": 853,
 				"network": "tcp",
