@@ -136,9 +136,6 @@
       }
     ],
     "rules": [
-     //{
-     //   "sniff": true
-     // },
       {
         "protocol": "dns",
         "action": "hijack-dns"
