@@ -62,7 +62,7 @@
       "tag": "mixed-in",
       "listen": "::",
       "listen_port": 20172,
-      "sniff": true // Sniffing enabled here
+      "sniff": true
     },
     {
       "type": "tun",
@@ -74,7 +74,7 @@
       "auto_route": true,
       "strict_route": false,
       "stack": "system",
-      "sniff": true // Sniffing enabled here
+      "sniff": true
     }
   ],
   "outbounds": [
@@ -136,7 +136,9 @@
       }
     ],
     "rules": [
-      // 原来的嗅探规则已移除，由 Inbounds 中的 "sniff": true 代替
+      {
+        "sniff": true
+      },
       {
         "protocol": "dns",
         "action": "hijack-dns"
