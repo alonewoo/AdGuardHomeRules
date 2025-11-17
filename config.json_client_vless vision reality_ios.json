@@ -2,18 +2,17 @@
   "dns": {
     "servers": [
       {
-        "tag": "dns_proxy",
-        "address": "https://1.1.1.1/dns-query",
-        "address_resolver": "dns_resolver",
-        "strategy": "ipv4_only",
-        "detour": "proxy"
-      },
-      {
-        "tag": "dns_direct",
+        "tag": "dns_direct_cn",
         "address": "https://dns.alidns.com/dns-query",
-        "address_resolver": "dns_resolver",
         "strategy": "ipv4_only",
         "detour": "direct"
+      },
+      {
+        "tag": "dns_proxy_foreign",
+        "address": "https://1.1.1.1/dns-query",
+        "address_resolver": "dns_direct_cn",
+        "strategy": "ipv4_only",
+        "detour": "proxy"
       },
       {
         "tag": "dns_block",
@@ -28,34 +27,33 @@
     ],
     "rules": [
       {
-        "outbound": "any",
-        "server": "dns_resolver"
-      },
-      {
         "rule_set": "geosite-geolocation-!cn",
-        "server": "dns_proxy"
+        "server": "dns_proxy_foreign"
       },
       {
-        "rule_set": [
-          "geosite-category-ads-all"
-        ],
+        "rule_set": "geosite-category-ads-all",
         "server": "dns_block"
+      },
+      {
+        "rule_set": "geosite-cn",
+        "server": "dns_direct_cn"
       },
       {
         "domain_suffix": [
           "isexsex.com",
           "aiyingshi.tv",
           "tongchengau.com",
-          "spotify.com"
+          "spotify.com",
+          "69shuba.com"
         ],
-        "server": "dns_proxy"
+        "server": "dns_proxy_foreign"
       },
       {
-        "rule_set": "geosite-cn",
-        "server": "dns_direct"
+        "outbound": "any",
+        "server": "dns_resolver"
       }
     ],
-    "final": "dns_proxy"
+    "final": "dns_proxy_foreign"
   },
   "inbounds": [
     {
