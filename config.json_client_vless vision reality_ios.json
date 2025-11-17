@@ -160,24 +160,4 @@
       },
       {
         "domain_suffix": [
-          "isexsex.com",
-          "aiyingshi.tv",
-          "tongchengau.com",
-          "69shuba.com"
-        ],
-        "outbound": "proxy"
-      },
-      {
-        "rule_set": ["geosite-cn", "geoip-cn"],
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      }
-    ],
-
-    "final": "direct",
-    "auto_detect_interface": true
-  }
-}
+          "isexsex.c
