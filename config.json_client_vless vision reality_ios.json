@@ -28,8 +28,8 @@
     ],
     "rules": [
       {
-        "rule_set": "geosite-geolocation-!cn",
-        "server": "dns_proxy"
+        "outbound": "any",
+        "server": "dns_resolver"
       },
       {
         "rule_set": [
@@ -49,9 +49,9 @@
         "rule_set": "geosite-cn",
         "server": "dns_direct"
       },
-     {
-        "outbound": "any",
-        "server": "dns_resolver"
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "server": "dns_proxy"
       }
     ],
     "final": "dns_proxy"
@@ -61,7 +61,6 @@
       "type": "mixed",
       "tag": "mixed-in",
       "listen": "::",
-       "listen": "0.0.0.0",
       "listen_port": 20172,
       "sniff": true
     },
@@ -138,7 +137,7 @@
     ],
     "rules": [
       {
-        "action": "sniff"
+        "sniff": true
       },
       {
         "protocol": "dns",
@@ -158,31 +157,8 @@
         "action": "reject"
       },
       {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geoip-cn",
-            "invert": true
-          },
-          {
-            "rule_set": "geosite-geolocation-!cn"
-          }
-        ],
-        "outbound": "proxy"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geoip-cn"
-          },
-          {
-            "rule_set": "geosite-cn"
-          }
-        ],
-        "outbound": "direct"
+        "rule_set": "geosite-category-ads-all",
+        "action": "reject"
       },
       {
         "domain_suffix": [
@@ -192,6 +168,13 @@
           "69shuba.com"
         ],
         "outbound": "proxy"
+      },
+      {
+        "rule_set": [
+          "geosite-cn",
+          "geoip-cn"
+        ],
+        "outbound": "direct"
       },
       {
         "ip_is_private": true,
