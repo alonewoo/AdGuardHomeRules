@@ -282,6 +282,6 @@ function FindProxyForURL(url, host) {
 
 
     // 默认代理
-   // return "PROXY 192.168.200.180:20172"; // 使用默认代理
-    return "DIRECT";
+   return "PROXY 192.168.200.180:20172"; // 使用默认代理
+   // return "DIRECT";
 }
