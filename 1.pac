@@ -20,7 +20,8 @@ function FindProxyForURL(url, host) {
         "*.perplexity.ai",
         "*.claude.ai",
         "*.grok.com",
-        "*.zeabur.com"
+        "*.zeabur.com",
+        "*.chatgpt.com"
     ];
 
     // 定义需要通过第2个代理的URL清单
