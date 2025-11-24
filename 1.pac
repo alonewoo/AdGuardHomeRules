@@ -60,6 +60,7 @@ function FindProxyForURL(url, host) {
          "patent9.com",
          "test-ipv6.com",
         "vip.ffzy-video.com",
+         "ffzy-video.com",
         "a1.mzstatic.com",
         "a2.mzstatic.com",
         "a3.mzstatic.com",
