@@ -57,6 +57,7 @@ function FindProxyForURL(url, host) {
         "taobao.com",
         "accuweather.com",
         "cponline.cnipa.gov.cn",
+        “cnipa.gov.cn”，
          "douban.com",
          "patent9.com",
          "test-ipv6.com",
