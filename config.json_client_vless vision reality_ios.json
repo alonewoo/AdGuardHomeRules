@@ -90,7 +90,7 @@
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "www.universalholiday.com.au",
+        "server_name": "www.australia.gov.au",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -98,7 +98,7 @@
         "reality": {
           "enabled": true,
           "public_key": "02QRu_3Cid7_yMA6MfmoallbVLGpf4j4pv9dt1nBhSk",
-          "short_id": "7612f6bb29738985"
+          "short_id": "7612f6bb29738986"
         }
       },
       "packet_encoding": "xudp"
