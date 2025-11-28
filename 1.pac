@@ -35,34 +35,32 @@ function FindProxyForURL(url, host) {
     var blockedDomains = [
         "store.wiris.com",
         "sogowan.com",
-         "awaliwa.com",
-        "sogowan.com",
-         "example.org"
-    ];
+         "awaliwa.com"
+        ];
 
     // 定义需要直接连接的域名清单
     var directUrlList = [
-        "jd.com",
-        "sspai.com",
-        "smzdm.com",
-        "163.com",
-        "sina.com",
-        "tmall.com",
-        "cnipa.gov.cn",
-        "snapdrop.net",
-        "1ptba.com",
-        "wiz.cn",
-        "qq.com",
-        "alicdn.com",
-        "taobao.com",
-        "accuweather.com",
-        "cponline.cnipa.gov.cn",
-        “cnipa.gov.cn”，
-         "douban.com",
-         "patent9.com",
-         "test-ipv6.com",
-        "vip.ffzy-video.com",
-         "ffzy-video.com",
+        "*.jd.com",
+        "*.sspai.com",
+        "*.smzdm.com",
+        "*.163.com",
+        "*.sina.com",
+        "*.tmall.com",
+        "*.cnipa.gov.cn",
+        "*.snapdrop.net",
+        "*.1ptba.com",
+        "*.wiz.cn",
+        "*.qq.com",
+        "*.alicdn.com",
+        "*.taobao.com",
+        "*.accuweather.com",
+        "*.cponline.cnipa.gov.cn",
+        "*.douban.com",
+         "*.patent9.com",
+         "*.test-ipv6.com",
+        "*.vip.ffzy-video.com",
+         "*.ffzy-video.com",
+        "*.patentguru.com",
         "a1.mzstatic.com",
         "a2.mzstatic.com",
         "a3.mzstatic.com",
@@ -276,7 +274,7 @@ function FindProxyForURL(url, host) {
     }
     // 检查是否在直接连接的域名清单中
     for (var n = 0; n < directUrlList.length; n++) {
-        if (dnsDomainIs(host, directUrlList[n])) {
+        if (shExpMatch(host, directUrlList[n])) {
             return "DIRECT"; // 直接连接指定域名
         }
     }
@@ -284,6 +282,6 @@ function FindProxyForURL(url, host) {
 
 
     // 默认代理
-   return "PROXY 192.168.200.180:20172"; // 使用默认代理
+   return "PROXY 192.168.200.199:20172"; // 使用默认代理
    // return "DIRECT";
 }
