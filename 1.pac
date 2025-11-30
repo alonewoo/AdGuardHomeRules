@@ -35,7 +35,8 @@ function FindProxyForURL(url, host) {
     var blockedDomains = [
         "store.wiris.com",
         "sogowan.com",
-         "awaliwa.com"
+         "awaliwa.com",
+        "track.mob-trk.com"
         ];
 
     // 定义需要直接连接的域名清单
