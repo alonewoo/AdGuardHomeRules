@@ -42,6 +42,13 @@
         "server": "dns_block"
       },
       {
+       "domain_suffix": [
+          "track.mob-trk.com",
+          "doubleclick.net"
+        ],
+        "server": "dns_block"
+      },
+      {
         "domain_suffix": [
           "isexsex.com",
           "aiyingshi.tv",
@@ -160,6 +167,15 @@
       {
         "port": [443, 853],
         "network": "udp",
+        "outbound": "block"
+      },
+      {
+        // 🚀 新增或修改: 将 track.mob-trk.com 和 doubleclick.net 导向 block 路由
+        // 注意：将此规则放在其他可能匹配的规则之前 (如 geoip-cn 或 geosite-geolocation-!cn 逻辑规则)。
+        "domain_suffix": [
+          "track.mob-trk.com",
+          "doubleclick.net"
+        ],
         "outbound": "block"
       },
       {
