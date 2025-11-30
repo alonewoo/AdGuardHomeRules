@@ -1,4 +1,4 @@
-function FindProxyForURL(url, host) {
+,function FindProxyForURL(url, host) {
     // 定义需要通过第一个代理的URL清单
     var proxyUrlList1 = [
         "*.google.com",
@@ -36,7 +36,8 @@ function FindProxyForURL(url, host) {
         "store.wiris.com",
         "sogowan.com",
          "awaliwa.com",
-        "track.mob-trk.com"
+        "track.mob-trk.com",
+        "doubleclick.net"
         ];
 
     // 定义需要直接连接的域名清单
