@@ -35,7 +35,8 @@ function FindProxyForURL(url, host) {
         "*.claude.ai",
         "*.grok.com",
         "*.zeabur.com",
-        "*.chatgpt.com"
+        "*.chatgpt.com",
+        "*.ncat.app"
     ];
 
     // 定义需要通过第2个代理的 URL 清单 (使用通配符匹配)
