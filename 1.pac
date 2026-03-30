@@ -82,6 +82,7 @@ function FindProxyForURL(url, host) {
         "*.wechatapp.com",
         "*.wechat.com",
         "*.weixin.qq.com",
+        "*.icloud.com",
         // 苹果相关域名
         "a1.mzstatic.com", "a2.mzstatic.com", "a3.mzstatic.com", "a4.mzstatic.com", "a5.mzstatic.com",
         "adcdownload.apple.com.akadns.net", "adcdownload.apple.com", "amp-api-updates.apps.apple.com",
