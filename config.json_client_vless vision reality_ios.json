@@ -28,20 +28,12 @@
     ],
     "rules": [
       {
-        "outbound": "any",
-        "server": "dns_resolver"
-      },
-      {
-        "rule_set": "geosite-geolocation-!cn",
-        "server": "dns_proxy"
-      },
-      {
         "rule_set": [
           "geosite-category-ads-all"
         ],
         "server": "dns_block"
       },
-      {
+     {
        "domain_suffix": [
           "track.mob-trk.com",
           "doubleclick.net"
@@ -58,11 +50,23 @@
         "server": "dns_proxy"
       },
       {
+        "rule_set": "geosite-geolocation-!cn",
+        "server": "dns_proxy"
+      },
+      {
         "rule_set": "geosite-cn",
         "server": "dns_direct"
       }
+      {
+        "outbound": "any",
+        "server": "dns_resolver"
+      }
     ],
     "final": "dns_proxy"
+    "strategy": "ipv4_only",
+    "cache_capacity": 4096,
+    "optimistic": true,
+    "reverse_mapping": true  
   },
   "inbounds": [
     {
@@ -79,7 +83,6 @@
       "interface_name": "tun0",
       "inet4_address": "172.16.0.1/30",
       "inet6_address": "fdfe:dcba:9876::1/126",
-      "mtu": 1400,
       "auto_route": true,
       "strict_route": false,
       "stack": "system",
@@ -129,14 +132,14 @@
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+        "url": "https://lunatvconfig.alonewoo.workers.dev/?url=https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
         "download_detour": "proxy"
       },
       {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "url": "https://lunatvconfig.alonewoo.workers.dev/?url=https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
         "download_detour": "proxy"
       },
       {
@@ -150,7 +153,7 @@
         "tag": "geosite-category-ads-all",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "url": "https://lunatvconfig.alonewoo.workers.dev/?url=https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
         "download_detour": "proxy"
       }
     ],
@@ -178,6 +181,10 @@
         ],
         "outbound": "block"
       },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      }
       {
         "type": "logical",
         "mode": "and",
@@ -219,10 +226,7 @@
         ],
         "outbound": "proxy"
       },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      }
+
     ],
     "final": "direct",
     "auto_detect_interface": true
