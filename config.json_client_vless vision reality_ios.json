@@ -50,6 +50,12 @@
         "server": "dns_proxy"
       },
       {
+        "domain_suffix": ["taikang.com",
+          "taikanglife.com"        
+        ],
+        "server": "dns_direct"
+      },
+      {
         "rule_set": "geosite-geolocation-!cn",
         "server": "dns_proxy"
       },
@@ -185,6 +191,12 @@
         "ip_is_private": true,
         "outbound": "direct"
       }
+      {
+        "domain_suffix": ["taikang.com",
+        "taikanglife.com"
+        ],
+        "outbound": "direct"
+      },
       {
         "type": "logical",
         "mode": "and",
