@@ -9,7 +9,7 @@
 function FindProxyForURL(url, host) {
 
     // 代理服务器地址定义
-    var PROXY_SERVER_1 = "PROXY 192.168.200.199:20172";
+    var PROXY_SERVER_1 = "PROXY 192.168.200.180:20172";
     var PROXY_SERVER_2 = "PROXY 192.168.200.180:20172";
     var BLOCK_PROXY = "PROXY 127.0.0.1:1"; // 用于阻止访问的无效代理
 
