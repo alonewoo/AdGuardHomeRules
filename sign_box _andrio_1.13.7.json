@@ -10,14 +10,12 @@
       {
         "tag": "dns_direct",
         "type": "https",
-        "server": "dns.alidns.com",
-        "detour": "direct"
+        "server": "dns.alidns.com"
       },
       {
         "tag": "dns_resolver",
         "type": "udp",
-        "server": "223.5.5.5",
-        "detour": "direct"
+        "server": "223.5.5.5"
       }
     ],
     "rules": [
@@ -59,7 +57,7 @@
       "tag": "proxy",
       "server": "152.69.161.157",
       "server_port": 443,
-      "uuid": "d1769017-25d9-41b2-8f0c-c00952a9f317",
+      "uuid": "d1769017-25d9-41b2-8f0c-c00952a9f318",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
