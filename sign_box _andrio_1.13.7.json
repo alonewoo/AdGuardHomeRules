@@ -36,7 +36,7 @@
         "server": "dns_block"
       },
       {
-        "domain_suffix": ["isexsex.com", "aiyingshi.tv", "tongchengau.com", "spotify.com"],
+        "domain_suffix": ["isexsex.com", "aiyingshi.tv", "tongchengau.com", "googleusercontent.com", "spotify.com"],
         "server": "dns_proxy"
       },
       {
@@ -64,14 +64,11 @@
   },
   "inbounds": [
     {
-      "type": "tun",
-      "tag": "tun-in",
-      "inet4_address": "172.16.0.1/30",
-      "auto_route": true,
-      "strict_route": false,
-      "stack": "gvisor",
-      "sniff": true,
-      "platform_interface": true 
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "0.0.0.0",
+      "listen_port": 20172,
+      "sniff": true
     }
   ],
   "outbounds": [
@@ -104,28 +101,28 @@
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
         "download_detour": "proxy"
       },
       {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
         "download_detour": "proxy"
       },
       {
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
         "download_detour": "proxy"
       },
       {
         "tag": "geosite-category-ads-all",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
         "download_detour": "proxy"
       }
     ],
