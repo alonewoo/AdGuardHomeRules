@@ -3,34 +3,42 @@
     "servers": [
       {
         "tag": "dns_proxy",
-        "address": "https://1.1.1.1/dns-query",
-        "address_resolver": "dns_resolver",
-        "strategy": "ipv4_only",
+        "type": "https",
+        "server": "1.1.1.1",
         "detour": "proxy"
       },
       {
         "tag": "dns_direct",
-        "address": "https://dns.alidns.com/dns-query",
-        "address_resolver": "dns_resolver",
-        "strategy": "ipv4_only",
+        "type": "https",
+        "server": "dns.alidns.com",
         "detour": "direct"
       },
       {
-        "tag": "dns_block",
-        "address": "rcode://refused"
-      },
-      {
         "tag": "dns_resolver",
-        "address": "223.5.5.5",
-        "strategy": "ipv4_only",
+        "type": "udp",
+        "server": "223.5.5.5",
         "detour": "direct"
       }
     ],
     "rules": [
-      { "rule_set": "geosite-category-ads-all", "server": "dns_block" },
-      { "domain_suffix": ["track.mob-trk.com", "doubleclick.net"], "server": "dns_block" },
-      { "domain_suffix": ["isexsex.com", "aiyingshi.tv", "tongchengau.com", "googleusercontent.com", "spotify.com"], "server": "dns_proxy" },
-      { "domain_suffix": ["taikang.com", "taikanglife.com"], "server": "dns_direct" },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "action": "predefined",
+        "rcode": "REFUSED"
+      },
+      {
+        "domain_suffix": ["track.mob-trk.com", "doubleclick.net"],
+        "action": "predefined",
+        "rcode": "REFUSED"
+      },
+      {
+        "domain_suffix": ["isexsex.com", "aiyingshi.tv", "tongchengau.com", "googleusercontent.com"],
+        "server": "dns_proxy"
+      },
+      {
+        "domain_suffix": ["taikang.com", "taikanglife.com"],
+        "server": "dns_direct"
+      },
       { "rule_set": "geosite-geolocation-!cn", "server": "dns_proxy" },
       { "rule_set": "geosite-cn", "server": "dns_direct" }
     ],
@@ -43,6 +51,15 @@
       "tag": "mixed-in",
       "listen": "0.0.0.0",
       "listen_port": 20172
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "address": ["172.16.0.1/30", "fdfe:dcba:9876::1/126"],
+      "auto_route": true,
+      "strict_route": false,
+      "stack": "gvisor",
+      "platform_interface": true
     }
   ],
   "outbounds": [
@@ -65,9 +82,7 @@
       },
       "packet_encoding": "xudp"
     },
-    { "type": "direct", "tag": "direct" },
-    { "type": "block", "tag": "block" },
-    { "type": "dns", "tag": "dns-out" }
+    { "type": "direct", "tag": "direct" }
   ],
   "route": {
     "rule_set": [
@@ -101,12 +116,11 @@
       }
     ],
     "rules": [
-      { "action": "sniff" }, 
-      { "protocol": "dns", "outbound": "dns-out" },
-      { "port": 853, "outbound": "block" },
-      { "port": [443, 853], "network": "udp", "outbound": "block" },
-      { "rule_set": "geosite-category-ads-all", "outbound": "block" },
-      { "domain_suffix": ["track.mob-trk.com", "doubleclick.net"], "outbound": "block" },
+      { "action": "sniff" },
+      { "protocol": "dns", "action": "hijack-dns" },
+      { "port": 853, "action": "reject" },
+      { "port": [443, 853], "network": "udp", "action": "reject" },
+      { "rule_set": "geosite-category-ads-all", "action": "reject" },
       { "ip_is_private": true, "outbound": "direct" },
       { "domain_suffix": ["taikang.com", "taikanglife.com"], "outbound": "direct" },
       {
