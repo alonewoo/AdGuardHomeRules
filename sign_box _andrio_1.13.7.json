@@ -59,7 +59,6 @@
     "final": "dns_proxy",
     "strategy": "ipv4_only",
     "cache_capacity": 4096,
-    "optimistic": true,
     "reverse_mapping": true
   },
   "inbounds": [
