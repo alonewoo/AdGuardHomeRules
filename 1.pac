@@ -86,7 +86,8 @@ function FindProxyForURL(url, host) {
          "*.patentstar.com.cn",
           "*.qq.com",
           "*.alibabacdn.com",
-              "*.myqcloud.com"
+              "*.myqcloud.com",
+        "*.9235.net"
         // 苹果相关域名
         // "a1.mzstatic.com", "a2.mzstatic.com", "a3.mzstatic.com", "a4.mzstatic.com", "a5.mzstatic.com",
          //  "adcdownload.apple.com.akadns.net", "adcdownload.apple.com", "amp-api-updates.apps.apple.com",
