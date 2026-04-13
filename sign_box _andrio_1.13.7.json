@@ -29,14 +29,10 @@
     "rules": [
       { "rule_set": "geosite-category-ads-all", "server": "dns_block" },
       { "domain_suffix": ["track.mob-trk.com", "doubleclick.net"], "server": "dns_block" },
-      {
-        "domain_suffix": ["isexsex.com", "aiyingshi.tv", "tongchengau.com", "googleusercontent.com", "spotify.com"],
-        "server": "dns_proxy"
-      },
+      { "domain_suffix": ["isexsex.com", "aiyingshi.tv", "tongchengau.com", "googleusercontent.com", "spotify.com"], "server": "dns_proxy" },
       { "domain_suffix": ["taikang.com", "taikanglife.com"], "server": "dns_direct" },
       { "rule_set": "geosite-geolocation-!cn", "server": "dns_proxy" },
-      { "rule_set": "geosite-cn", "server": "dns_direct" },
-      { "outbound": "any", "server": "dns_resolver" }
+      { "rule_set": "geosite-cn", "server": "dns_direct" }
     ],
     "final": "dns_proxy",
     "strategy": "ipv4_only"
@@ -105,13 +101,8 @@
       }
     ],
     "rules": [
-      {
-        "action": "sniff"
-      },
-      {
-        "protocol": "dns",
-        "outbound": "dns-out"
-      },
+      { "action": "sniff" }, 
+      { "protocol": "dns", "outbound": "dns-out" },
       { "port": 853, "outbound": "block" },
       { "port": [443, 853], "network": "udp", "outbound": "block" },
       { "rule_set": "geosite-category-ads-all", "outbound": "block" },
