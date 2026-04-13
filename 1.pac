@@ -89,6 +89,8 @@ function FindProxyForURL(url, host) {
               "*.myqcloud.com",
          "*.alipay.com",
          "*.360buyimg.com",
+         "*.gov.cn",
+         "*.cn",
         "*.9235.net"
         // 苹果相关域名
         // "a1.mzstatic.com", "a2.mzstatic.com", "a3.mzstatic.com", "a4.mzstatic.com", "a5.mzstatic.com",
