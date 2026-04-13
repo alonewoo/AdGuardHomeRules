@@ -3,55 +3,49 @@
     "servers": [
       {
         "tag": "dns_proxy",
-        "address": "https://1.1.1.1/dns-query",
-        "address_resolver": "dns_resolver",
-        "strategy": "ipv4_only",
+        "type": "https",
+        "server": "1.1.1.1",
         "detour": "proxy"
       },
       {
         "tag": "dns_direct",
-        "address": "https://dns.alidns.com/dns-query",
-        "address_resolver": "dns_resolver",
-        "strategy": "ipv4_only",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns_block",
-        "address": "rcode://refused"
+        "type": "https",
+        "server": "dns.alidns.com",
+        "domain_resolver": "dns_resolver" 
       },
       {
         "tag": "dns_resolver",
-        "address": "223.5.5.5",
-        "strategy": "ipv4_only",
-        "detour": "direct"
+        "type": "udp",
+        "server": "223.5.5.5" 
       }
     ],
     "rules": [
       {
-        "rule_set": [
-          "geosite-category-ads-all"
-        ],
-        "server": "dns_block"
+        "rule_set": "geosite-category-ads-all",
+        "action": "predefined",
+        "rcode": "REFUSED"
       },
-     {
-       "domain_suffix": [
+      {
+        "domain_suffix": [
           "track.mob-trk.com",
           "doubleclick.net"
         ],
-        "server": "dns_block"
+        "action": "predefined",
+        "rcode": "REFUSED"
       },
       {
         "domain_suffix": [
           "isexsex.com",
           "aiyingshi.tv",
           "tongchengau.com",
-          "spotify.com"
+          "googleusercontent.com"
         ],
         "server": "dns_proxy"
       },
       {
-        "domain_suffix": ["taikang.com",
-          "taikanglife.com"        
+        "domain_suffix": [
+          "taikang.com",
+          "taikanglife.com"
         ],
         "server": "dns_direct"
       },
@@ -63,37 +57,30 @@
         "rule_set": "geosite-cn",
         "server": "dns_direct"
       }
-      {
-        "outbound": "any",
-        "server": "dns_resolver"
-      }
     ],
-    "final": "dns_proxy"
+    "final": "dns_proxy",
     "strategy": "ipv4_only",
     "cache_capacity": 4096,
     "optimistic": true,
-    "reverse_mapping": true  
+    "reverse_mapping": true
   },
   "inbounds": [
     {
       "type": "mixed",
       "tag": "mixed-in",
       "listen": "0.0.0.0",
-      "listen_port": 20172,
-      "sniff": true,
-      "sniff_override_destination": false
+      "listen_port": 20172
     },
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.16.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
+      "address": [
+        "172.16.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
       "auto_route": true,
       "strict_route": false,
-      "stack": "system",
-      "sniff": true,
-      "sniff_override_destination": false
+      "stack": "system"
     }
   ],
   "outbounds": [
@@ -102,7 +89,7 @@
       "tag": "proxy",
       "server": "152.69.161.157",
       "server_port": 443,
-      "uuid": "d1769017-25d9-41b2-8f0c-c00952a9f317",
+      "uuid": "d1769017-25d9-41b2-8f0c-c00952a9f318",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
@@ -122,14 +109,6 @@
     {
       "type": "direct",
       "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
     }
   ],
   "route": {
@@ -138,64 +117,79 @@
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
         "download_detour": "proxy"
       },
       {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
         "download_detour": "proxy"
       },
       {
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
         "download_detour": "proxy"
       },
       {
         "tag": "geosite-category-ads-all",
         "type": "remote",
         "format": "binary",
-        "url": "https://gh-proxy.org/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
         "download_detour": "proxy"
       }
     ],
     "rules": [
       {
+        "action": "sniff"
+      },
+      {
         "protocol": "dns",
-        "outbound": "dns-out"
+        "action": "hijack-dns"
       },
       {
         "port": 853,
-        "network": "tcp",
-        "outbound": "block"
+        "action": "reject"
       },
       {
         "port": [443, 853],
         "network": "udp",
-        "outbound": "block"
+        "action": "reject"
       },
       {
-        // 🚀 新增或修改: 将 track.mob-trk.com 和 doubleclick.net 导向 block 路由
-        // 注意：将此规则放在其他可能匹配的规则之前 (如 geoip-cn 或 geosite-geolocation-!cn 逻辑规则)。
+        "rule_set": "geosite-category-ads-all",
+        "action": "reject"
+      },
+      {
         "domain_suffix": [
           "track.mob-trk.com",
           "doubleclick.net"
         ],
-        "outbound": "block"
+        "action": "reject"
       },
       {
         "ip_is_private": true,
         "outbound": "direct"
-      }
+      },
       {
-        "domain_suffix": ["taikang.com",
-        "taikanglife.com"
+        "domain_suffix": [
+          "taikang.com",
+          "taikanglife.com"
         ],
         "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "isexsex.com",
+          "aiyingshi.tv",
+          "tongchengau.com",
+          "googleusercontent.com",
+          "69shuba.com"
+        ],
+        "outbound": "proxy"
       },
       {
         "type": "logical",
@@ -212,33 +206,13 @@
         "outbound": "proxy"
       },
       {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geoip-cn"
-          },
-          {
-            "rule_set": "geosite-cn"
-          }
-        ],
+        "rule_set": "geosite-cn",
         "outbound": "direct"
       },
       {
         "rule_set": "geoip-cn",
         "outbound": "direct"
-      },
-      {
-        "domain_suffix": [
-          "isexsex.com",
-          "aiyingshi.tv",
-          "tongchengau.com",
-          "spotify.com",
-           "69shuba.com"
-        ],
-        "outbound": "proxy"
-      },
-
+      }
     ],
     "final": "direct",
     "auto_detect_interface": true
