@@ -55,7 +55,7 @@
   ],
   "certificate": {
   "store": "mozilla"     // 比 chrome 包含更多 CA，兼容性更好
-}
+},
   "outbounds": [
     {
       "type": "vless",
