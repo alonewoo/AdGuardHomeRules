@@ -42,7 +42,7 @@
       { "rule_set": "geosite-geolocation-!cn", "server": "dns_proxy" },
       { "rule_set": "geosite-cn", "server": "dns_direct" }
     ],
-    "final": "direct",
+    "final": "dns_direct",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
