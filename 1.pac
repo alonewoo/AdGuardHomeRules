@@ -92,8 +92,9 @@ function FindProxyForURL(url, host) {
          "*.360buyimg.com",
          "*.gov.cn",
          "*.cn",
-        "*.9235.net"
-        // 苹果相关域名
+        "*.9235.net",
+        "*.hangzhou.dpdns.org"  
+          // 苹果相关域名
         // "a1.mzstatic.com", "a2.mzstatic.com", "a3.mzstatic.com", "a4.mzstatic.com", "a5.mzstatic.com",
          //  "adcdownload.apple.com.akadns.net", "adcdownload.apple.com", "amp-api-updates.apps.apple.com",
           // "amp-api.media.apple.com", "api-p-ap-c.smoot.apple.com", "api-p-ap-d.smoot.apple.com",
