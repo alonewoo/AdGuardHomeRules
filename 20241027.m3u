@@ -36,6 +36,9 @@ http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221233052/396328936.sm
 https://ali-m-l.cztv.com/channels/lantian/channel010/1080p.m3u8
 #EXTINF:-1 tvg-id="之江纪录" tvg-name="之江纪录" tvg-logo="https://live.fanmingming.com/tv/之江记录.png" group-title="浙江",之江纪录
 https://ali-m-l.cztv.com/channels/lantian/channel012/1080p.m3u8
+#EXTINF:-1 tvg-id="28" tvg-name="浙江杭州" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/zhejiang.png" group-title="卫视",浙江卫视 8M1080
+http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221228324/42330389.smil/index.m3u8?fmt=ts2hls
+
 
 #EXTINF:-1 tvg-id="1" tvg-name="CCTV1" tvg-logo="http://epg.51zmt.top:8000/tb1/CCTV/CCTV1.png" group-title="央视",CCTV1 8M1080
 http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221228318/42329859.smil/index.m3u8?fmt=ts2hls
@@ -185,8 +188,7 @@ http://39.134.176.166/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/32212306
 http://39.134.176.166/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221231270/01.m3u8?fmt=ts2hls
 #EXTINF:-1 tvg-id="47" tvg-name="河南卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/henan.png" group-title="卫视",河南卫视 4M1080
 http://39.134.176.166/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221231264/01.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="28" tvg-name="浙江杭州" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/zhejiang.png" group-title="卫视",浙江卫视 8M1080
-http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221228324/42330389.smil/index.m3u8?fmt=ts2hls
+
 #EXTINF:-1 tvg-id="34" tvg-name="深圳卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/shenzhen.png" group-title="卫视",深圳卫视 Max4.5M1080
 http://39.134.176.166/hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221230676/01.m3u8?fmt=ts2hls
 #EXTINF:-1 tvg-id="48" tvg-name="湖北卫视" tvg-logo="http://epg.51zmt.top:8000/tb1/ws/hubei.png" group-title="卫视",湖北卫视 4M1080
