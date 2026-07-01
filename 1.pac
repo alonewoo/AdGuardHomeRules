@@ -36,7 +36,8 @@ function FindProxyForURL(url, host) {
         "*.grok.com",
         "*.zeabur.com",
         "*.chatgpt.com",
-        "*.ncat.app"
+        "*.ncat.app",
+        "*.tabbit.ai"
     ];
 
     // 定义需要通过第2个代理的 URL 清单 (使用通配符匹配)
