@@ -46,7 +46,8 @@ function FindProxyForURL(url, host) {
         "*.69shuba.top",
         "*.qzz.io",
         "*.propertytree.com",
-        "*.spotify.com"
+        "*.spotify.com"，
+        "*.agnes-ai.com"
     ];
 
     // 定义需要被阻止的域名清单 (使用 dnsDomainIs 匹配，匹配主机名或其子域名)
