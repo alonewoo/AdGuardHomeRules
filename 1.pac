@@ -97,9 +97,12 @@ function FindProxyForURL(url, host) {
          "*.cn",
         "*.9235.net",
         "*.flyscoot.com",
-         "*gh-proxy.org",
-        "*.hangzhou.dpdns.org"  
+         "gh-proxy.org",
+        "*.hangzhou.dpdns.org", 
           // 苹果相关域名
+        "*.mzstatic.com",
+        "*.apple.com",
+        "*.cdn-apple.com"
         // "a1.mzstatic.com", "a2.mzstatic.com", "a3.mzstatic.com", "a4.mzstatic.com", "a5.mzstatic.com",
          //  "adcdownload.apple.com.akadns.net", "adcdownload.apple.com", "amp-api-updates.apps.apple.com",
           // "amp-api.media.apple.com", "api-p-ap-c.smoot.apple.com", "api-p-ap-d.smoot.apple.com",
