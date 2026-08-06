@@ -46,7 +46,7 @@ function FindProxyForURL(url, host) {
         "*.69shuba.top",
         "*.qzz.io",
         "*.propertytree.com",
-        "*.spotify.com"，
+        "*.spotify.com",
         "*.agnes-ai.com"
     ];
 
@@ -90,13 +90,14 @@ function FindProxyForURL(url, host) {
          "*.patentstar.com.cn",
           "*.qq.com",
           "*.alibabacdn.com",
-              "*.myqcloud.com",
+         "*.myqcloud.com",
          "*.alipay.com",
          "*.360buyimg.com",
          "*.gov.cn",
          "*.cn",
         "*.9235.net",
         "*.flyscoot.com",
+         "*gh-proxy.org",
         "*.hangzhou.dpdns.org"  
           // 苹果相关域名
         // "a1.mzstatic.com", "a2.mzstatic.com", "a3.mzstatic.com", "a4.mzstatic.com", "a5.mzstatic.com",
